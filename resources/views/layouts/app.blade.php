@@ -23,26 +23,26 @@
 
 
         .sidenav {
-            margin-top:60px; 
+            margin-top:74px; 
             padding-bottom: 10px;
           width: 0;
           position: fixed;
           z-index: 1;
           top: 0;
           left: 0;
-          background-color:darkslategrey;
+          background-color:ghostwhite;
           overflow-x: hidden;
           transition: 0.5s;
           padding-top: 60px;
-          border-left:1px soolid blanchedalmond;
+          border:1px solid gray;
           border-radius:2px;
         }
         
         .sidenav a {
           padding: 8px 8px 8px 32px;
           text-decoration: none;
-          font-size: 25px;
-          color:ghostwhite;
+          font-size: 17px;
+          color:darkslategray;
           display: block;
           transition: 0.3s;
         }
@@ -51,6 +51,7 @@
         .sidenav a:hover {
           background-color:dimgrey;
           border-bottom:1px solid limegreen;
+          color:bisque;
         }
         
         .sidenav .closebtn {
@@ -62,7 +63,7 @@
         }
         .sidenav .closebtn:hover{
             color: gray;
-            background:darkslategrey; 
+            background:ghostwhite; 
             border: 0px;
         }
         
