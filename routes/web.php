@@ -14,9 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/posts/{$id}','PageController@sugg');
 
 Route::resource('posts', 'PostsController');
-
+Route::resource('sugg', 'suggController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

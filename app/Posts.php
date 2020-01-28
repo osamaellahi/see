@@ -15,4 +15,10 @@ class Posts extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+    public function solution(){
+        return $this->hasMany('App\Solution');
+    }
+    public function sugg(){
+        return $this->hasMany('App\suggestion');
+    }
 }

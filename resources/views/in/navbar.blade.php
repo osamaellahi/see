@@ -1,5 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
+        @if ((!Auth::guest()))
+            
+<span style="font-size:30px;cursor:pointer;margin-top:0px;margin-right:20px;" onclick="openNav()">&#9776; </span>
+        @endif
         <a class="navbar-brand " style="color:blueviolet;font-size:xx-large;font-family:Verdana, Geneva, Tahoma, sans-serif;" href="{{ url('/') }}">
             {{ config('app.name', 'seeService') }}
         </a>

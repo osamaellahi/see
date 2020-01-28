@@ -8,6 +8,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
 
         <!-- Styles -->
         <style>
@@ -70,10 +73,10 @@
                     @auth
                         <a href="{{ url('/home') }}">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Login <i class="fa fa-sign-in" style="padding-right:10px;"></i></a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Join the community <i class="fa fa-users" style="padding-right:10px;"></i></a>
                         @endif
                     @endauth
                 </div>

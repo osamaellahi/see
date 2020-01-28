@@ -7,9 +7,9 @@ use App\Posts;
 use App\User;
 use App\Solution;
 use App\suggestion;
-class PostsController extends Controller
+
+class suggController extends Controller
 {
-   
     /**
      * Display a listing of the resource.
      *
@@ -17,15 +17,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts=Posts::orderBy('id', 'DESC')->get();
-        $soltion=Solution::all();        
-        $sugg=suggestion::all();
-
-        $data =array(
-            $posts, $soltion,$sugg
-            );
-        return view('posts.index')->with('data',$data);
+        //
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -33,7 +27,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        //
     }
 
     /**
@@ -41,42 +35,31 @@ class PostsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-    */
+     */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'title' => 'required',
-            'body' =>'required'
-        ]);
-
-        $post = new Posts;
-        $post->title =$request->input('title');
-        $post->body =$request->input('body');
-        $post->user_id=auth()->User()->id;
-        $post->save();
-        return redirect('posts')->with('success','Post created');
+        
+            $sugg = new suggestion;
+            $sugg ->post_id=$request->input('post') ;
+            $post_id=$request->input('post');
+            $sugg ->suggest= '<p>'. $request->input('sugg').'</p>';
+            if(empty($sugg ->suggest)){}
+            else{
+            $sugg ->name = auth()->user()->name;
+            $sugg->save();
+            }
+            return back();
     }
- 
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     public function show($id)
     {
-        $post= Posts::find($id);
-        $soltion=Solution::where('post_id', '=', $id)->get();        
-        $sugg=suggestion::where('post_id', '=', $id)->get();
-
-        $data =array(
-            $post, $soltion,$sugg
-            );
-        return view('posts.showdetail')->with('data',$data);
+        //
     }
 
     /**
