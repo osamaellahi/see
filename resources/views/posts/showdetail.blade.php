@@ -17,14 +17,13 @@
                     "  class="rounded-circle img-fluid zoom"  height="45px" width="50px" alt="{{$data[0]->user->name}}">
                     {{$data[0]->user->name}}</h5>
                         
-                    <h5><a href="" class="link">{{$data[0]->title}}</a>
-                        <a href="" class="link" style="float:right"><small>Give solution <i class="fa fa-arrow-circle-right"></i></small></a></p>
-                           
+                    <h5 style="display:inline-block;width:100%;"><p class="link" style="float:left;">{{$data[0]->title}}</p>
+                      
                     </h5>
                     
                     </div>
                     <div class="card-body" >
-                        <p>{!! $data[0]->body !!}</p>
+                        {!! $data[0]->body !!}
                     </div>
                    <div style="display:inline-block;border-bottom:.2px solid rosybrown;">
                     
@@ -57,25 +56,30 @@
                       <!------suggestion getting from --->
                       @include('suggestions.show', ['data' => [$data[2],$data[0]]]) 
                       <!------ending suggestion --->
-                                
+                      
                         <!------suggestion creating --->
-                        @include('suggestions.create', ['data' => $data[0]->id])
-                        <!------ending suggestion --->
-                                
+                        @include('suggestions.create', ['data' => $data[0]->id ])
+                        <!------ending suggestion --->-
+                          
                     </div>
                 </div>
                 <div class="card" style="border:0.1px solid white">
                     <strong>Solution</strong>
             
             <div class="card-body" style="display:inline-block">
-               @foreach ($data[1] as $solution)
-               <div class="card-header">
-                  <h5 style="">  {{$solution->name}} <i class="fa fa-caret-right"></i> </h5>{{$solution->sol}}
-            </div>
-            <br>
-               @endforeach
-                
-                        
+             
+              <!------showing solutions --->
+              @include('solution.show',['data'=>$data[1]]) 
+              <!------ending  --->   
+                 <!------creating solutions --->
+                 @if(count($data[3])>0)
+                 @foreach ($data[3] as $sp)
+                 @if (((auth()->user()->id)==($sp->user_id))&&($sp->status=="verified"))
+                 @include('solution.create',['post'=>$data[0]])
+                 @endif   
+                 @endforeach
+                 @endif
+                 <!------ending  --->   
                         
             </div>
             <br>

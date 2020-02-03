@@ -13,10 +13,10 @@
 
 @include('in.leftside')
 
-  <div class=" row" style="margin:1.7%;">
-      <div class="col-md-8 card" style="    padding:20px;  box-shadow: .5px .5px 2px 1px #888888; ">
+  <div class=" row" style="margin-left:1.7%;margin-right:1.7%">
+      <div class="col-md-8 card" style="    padding:20px; border-radius:0px; border:0; box-shadow: .5px .5px 2px 1px #888888;">
 @include('in.messages')
-<h1><a href="/see/public/posts">Post</a>->Create Post</h1>
+<h1><a href="/see/public/posts">Posts</a>->Create Post</h1>
 {!! Form::open(['action' => 'PostsController@store' , 'method' => 'POST']) !!}
 <div class="form-group">
         {{Form::label('title', 'Title',['style'=>'font-weight:bold'])}}
@@ -37,7 +37,7 @@
 {!! Form::close() !!}
 </div>
 <div class="col-md-4 col-md-offset-4" style="margin-top:2px;">
-    <div class="card">
+    <div class="card" style="border-radius:0;">
         <div class="card-header">
             Why/How to write a post ?
         </div>

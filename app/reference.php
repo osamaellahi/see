@@ -4,18 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Solution extends Model
+class reference extends Model
 {
-
-    protected $table='solutions';
+    protected $table='references';
 
     public $primaryKey= 'id';
 
     public $timestamps='true';
 
-    public function post(){
-        return $this->belongsTo('App\Posts');
-    }
     public function solutionprovider(){
         return $this->belongsTo('App\solutionprovider');
     }

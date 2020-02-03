@@ -12,7 +12,11 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -23,7 +27,30 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
-
+      #upload-progress{
+    height: 20px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+#upload-progress .progress-bar{
+	background: #bde1ff;
+    width: 0;
+    height: 20px;
+}
+      .suggestclass{
+        margin-bottom:4px;padding:2px;background:lightblue;margin-left:5px;1px solid lightblue;border-radius:2px;float:left;width:auto;display:inline-block;
+      }
+      .suggestlink{
+        padding:0%;color:blueviolet;
+      }
+      .tooop:hover{
+        color:black;
+        border-bottom:.5px solid black;
+      }
+      .tooop:focus{
+        color:blue;
+        border-bottom:.5px solid black;
+      }
 .zoom {
   transition: transform .3s; /* Animation */
   margin: 0 auto;
@@ -54,7 +81,6 @@
           font-size: 17px;
           color:darkslategray;
           display: block;
-          transition: 0.3s;
         }
     
         
@@ -82,7 +108,7 @@
           .sidenav a {font-size: 18px;}
         }
         .card{
-            border:1px solid mediumaquamarine;
+            border:.5px solid mediumaquamarine;
         }
        
         </style>

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('content')
 @include('in.leftside')
-<div class="row">
+<div class="col-md-12">
     <div class="col-md-1">
     </div>
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                
+                People who are near .
             </div>
             <div class="card-body" >
                 <div class="row">
@@ -30,8 +30,10 @@
                        <h4> {{$p->name}} </h4>
                       </div>
                       <div class="icons" style="float:right;display:inline-block;">
-                          m
-                      </div>
+                          
+                        <a href="" class="link" style="color:black">Lets chat <i class="fa fa-envelope " style="color:blueviolet"></i></a>
+                        @include('group.add')  
+                    </div>
                     </div>
                     <div class="card-body" style="margin-bottom:5px ">
                         <p style="float:left;display:inline-block;">Posts 12 </p>
@@ -43,9 +45,12 @@
             @if ($i%2!=0)
             <div class="col-md-2">
             </div>
+                
             @endif
+            
                 @endforeach
                 </div>
+               
             </div>
         </div>
     </div>

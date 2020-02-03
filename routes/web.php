@@ -14,9 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/posts/{$id}','PageController@sugg');
+
+Route::get('/people','PageController@people');
+Route::get('sugg/add','suggController@add');
+Route::get('/people/{{$id}}','PageController@show');
 
 Route::resource('posts', 'PostsController');
+
+Route::resource('solutionprovider', 'SproviderController');
+Route::resource('Solutions', 'SolutionsController');
 Route::resource('sugg', 'suggController');
 Auth::routes();
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
 class PageController extends Controller
 {
     /**
@@ -14,8 +14,16 @@ class PageController extends Controller
     public function index()
     {
         //
+    } 
+    public function people()
+    {
+        $users =User::all();
+        return view('pages.people')->with('people',$users);
     }
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Show the form for creating a new resource.
      *

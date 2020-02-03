@@ -18,10 +18,10 @@
                    @if ((!Auth::guest()))
                    <ul class="navbar-nav mr-auto">
                     <li class="nav-link">
-                        <a href="/see/public/posts" class="nav-link">News feed</a>
+                        <a href="/see/public/posts" class="nav-link tooop">News feed</a>
                     </li>
                     <li class="nav-link">
-                        <a href="/see/public/home" class="nav-link">Dashboard</a>
+                        <a href="/see/public/home" class="nav-link tooop">Dashboard</a>
                     </li>
                 </ul>
                 </div>
@@ -44,7 +44,7 @@
                         </li>
                     @endif
                 @else
-              
+                
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -56,7 +56,6 @@
                             
                                 <a class="dropdown-item" href="#"><i class="fa fa-bell" style="padding-right:10px;"></i>  notification</a>
                             
-                                <a  class="dropdown-item" href="#"><i class="fa fa-cog" style="padding-right:10px;"></i>  setting</a>
                             
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

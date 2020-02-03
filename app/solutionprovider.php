@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Posts extends Model
+class solutionprovider extends Model
 {
-    protected $table='posts';
+    
+    protected $table='solutionproviders';
 
     public $primaryKey= 'id';
 
@@ -18,8 +19,7 @@ class Posts extends Model
     public function solution(){
         return $this->hasMany('App\Solution');
     }
-    public function sugg(){
-        return $this->hasMany('App\suggestion');
+    public function ref(){
+        return $this->hasMany('App\reference');
     }
 }
-?>

@@ -9,7 +9,7 @@
         <hr />
         <a href="#"><i style="padding-right:10px;" class="fa fa-plus-circle" aria-hidden="true"></i>Create Group</a>
         <hr />
-        <a   href="#"><i style="padding-right:10px;" class="fa fa-user" aria-hidden="true"></i> People arround me</a>
+        <a   href="/see/public/people"><i style="padding-right:10px;" class="fa fa-user" aria-hidden="true"></i> People arround me</a>
         <a   href="#"><i style="padding-right:10px;" class="fa fa-users" aria-hidden="true"></i>Groups arround me</a>
         <hr />
         <a href="#"><i style="padding-right:10px;" class="fa fa-eye" aria-hidden="true"></i>See What's trending?</a>

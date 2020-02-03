@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Posts;
 use App\User;
+use App\solutionprovider;
 use App\Solution;
 use App\suggestion;
-
+use Validator;
+use Response;
 class suggController extends Controller
 {
     /**
@@ -17,7 +19,8 @@ class suggController extends Controller
      */
     public function index()
     {
-        //
+        $sugg =suggestion::all();
+        return view('suggestions.allsugg')->with('data',$sugg);
     }
 
     /**
@@ -42,15 +45,33 @@ class suggController extends Controller
             $sugg = new suggestion;
             $sugg ->post_id=$request->input('post') ;
             $post_id=$request->input('post');
-            $sugg ->suggest= '<p>'. $request->input('sugg').'</p>';
+            $sugg ->suggest=  $request->input('sugg');
             if(empty($sugg ->suggest)){}
             else{
             $sugg ->name = auth()->user()->name;
             $sugg->save();
+            $response=array ($sugg);
             }
             return back();
+        
     }
-
+    public function add(Request $request)
+    {
+        
+            $sugg = new suggestion;
+            $sugg ->post_id=$request->input('post') ;
+            $post_id=$request->input('post');
+            $sugg ->suggest=  $request->input('sugg');
+            if(empty($sugg ->suggest)){}
+            else{
+            $sugg ->name = auth()->user()->name;
+            $sugg->save();
+            $response=array ($sugg);
+            }
+            $data =suggestion::all();
+        return response()->json(['data',$data]);
+        
+    }
     /**
      * Display the specified resource.
      *
@@ -59,7 +80,7 @@ class suggController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

@@ -1,82 +1,58 @@
 @extends('layouts.app')
 @section('content')
 @include('in.leftside')
-@include('in.messages')
-<!-- Modal -->
-<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Fill Information and send your request</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-        {!! Form::open([ 'method' => 'POST']) !!}
-<div class="form-group">
-    {{Form::label('title', 'Title',['style'=>'font-weight:bold'])}}
-    <br><small>Ask any question(Relating to your projects / tasks ) ?</small>
-    {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter tite..'])}}
-</div>
-<div class="form-group">
-    {{Form::label('catrgory', 'Select a category',['style'=>'font-weight:bold'])}}
-    {{Form::select('size', array('1' => 'Education', '2' => 'Planting'), 'Education',['class'=>'form-control'])}}
-</div>
-<div class="form-group">
-    {{Form::label('body', 'Body' ,['style'=>'font-weight:bold'])}}
-    <br><small>Explain your question here .</small>
-    {{Form::text('body', '',['class'=>'form-control','id'=>'article','placeholder'=>'Enter Body..'])}}
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    
-{{Form::submit('Submit request',['class'=>'btn btn-primary'])}}
 
-  </div>
+<!--@include('in.messages')-->
+
+<div class="col-md row" style="margin-top:0%;">
+
+<div class="col-md-7 container"  style="margin-top:0%;">
   
-{!! Form::close() !!}
-    </div>
-   
-  </div>
-</div>
-</div>
-<!------------------------------------------------------------>
-<div class="row">
-
-
-
-<div class="col-md-1" >
-
-</div >
-<div class="col-md-6 container" >
-  
-    <div class=" ">
-        <div class="">
-            <br>
-
+    <div class=" " style="margin-top:0%;">
+        <div class="" style="margin-top:0%;">
             <div class="">
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                 @endif
-
+                
                     @if (count($data[0])<=0)
                         <p>No post yet</p>
                     @else
                         
                     @foreach ($data[0] as $post)
-                    <div class="card post">    
+                    <div class="card">    
                         
-                    <div class="card-header" style="background:rosybrown;">
-                    <h5>{{$post->user->name}}</h5>
+                    <div class="card-header" style="border-bottom: 0px;">
+                    <h5>
+                      <img src="
+                      https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRckzeL7ufOox9b3vTrzwDBzFSMXmWqMaEJ8B7r2hV4kEcmHKM8&s
+                      "  class="rounded-circle img-fluid zoom"  height="45px" width="50px" alt="{{$post->user->name}}">
+                     
+                    {{$post->user->name}}<small style="float:right">{{$post->created_at}}</small></h5>
                             </div>
                     <div class="card-header">
                     <h5><a href="/see/public/posts/{{$post->id}}" class="link">{{$post->title}}</a>
-                        <a href="/see/public/posts/{{$post->id}}" class="link" style="float:right"><small>Give solution <i class="fa fa-arrow-circle-right"></i></small></a></p>
-                           
+                      <?php $chk='false'; ?>
+                @if(count($data[3])>0)
+                 @foreach ($data[3] as $sp)
+                 @if (((auth()->user()->id)==($sp->user_id))&&($sp->status=="verified"))
+                 <a href="/see/public/posts/{{$post->id}}" class="link" style="float:right"><small>Give solution <i class="fa fa-arrow-circle-right"></i></small></a>
+                      <?php $chk='true'; ?>
+                 @endif   
+                 @endforeach
+                 @endif
+                 <?php 
+                 if($chk=='false')
+                 {
+                 echo ' <a href="/see/public/posts/'.$post->id.'" class="link" style="float:right"><small>see solution <i class="fa fa-arrow-circle-right"></i></small></a>
+                 ';
+                 }
+                 ?>
+                </p>
+                      
+                                
                     </h5>
                     
                         </div>
@@ -90,17 +66,7 @@ aria-hidden="true">
                         </div>
                        <div style="display:inline-block;border-bottom:.2px solid rosybrown;">
                         
-                     <i style="font-size:24px;padding:10px;color:rosybrown;width:35px;
-                     cursor: pointer;
-                     
-                     
-                     " class="fa fa-thumbs-up"></i><p style="display:inline-block;">2</p>
-                                     
-                     <i style="font-size:24px;margin-left:5px;
-                                -webkit-transform: scaleX(-1);
-                                  transform: scaleX(-1);
-                     padding:10px;color:rosybrown;width:35px;cursor: pointer;" class="fa fa-thumbs-down"></i><p style="display:inline-block">22</p>
-
+                    
                        <?php
                        $j=0;
                        $k=0;
@@ -147,48 +113,17 @@ aria-hidden="true">
                     <br>
                     @endforeach
                     @endif
+                    <br>
             </div>
         </div>
     </div>
 </div>
-<div class="col-md-3 " style="margin-top:1.7%">
-    
-    <div class="card"  >
-                 
-        <h5 class="card-header">Apply for Solution Provider</h5>
-        <div class="card-body">
-          <h6 style="color:tomato">What is Solution Provider ?</h6>
-          <p>If you want to give solution for any problem which you are seeing. You must be a valid person 
-              to give solution .</p>
-              <button type="button" class="btn btn-outline-success"  data-toggle="modal" data-target="#basicExampleModal" style="float:right">Click to apply</button><br>
-            </div>
+    <div class="col-md-4 ">
+    @include('solutionprovider.apply')
+<br >
 
-</div ><br >
-<div class="card"  >
-                 
-    <h5 class="card-header">Apply for Solution Provider</h5>
-    <div class="card-body">
-      <h6 style="color:tomato">What is Solution Provider ?</h6>
-      <p>If you want to give solution for any problem which you are seeing. You must be a valid person 
-          to give solution .</p>
-          <button type="button" class="btn btn-outline-success"  data-toggle="modal" data-target="#basicExampleModal" style="float:right">Click to apply</button><br>
-        </div>
-
-</div ><br>
-<div class="card"  >
-                 
-    <h5 class="card-header">Apply for Solution Provider</h5>
-    <div class="card-body">
-      <h6 style="color:tomato">What is Solution Provider ?</h6>
-      <p>If you want to give solution for any problem which you are seeing. You must be a valid person 
-          to give solution .</p>
-          <button type="button" class="btn btn-outline-success"  data-toggle="modal" data-target="#basicExampleModal" style="float:right">Click to apply</button><br>
-        </div>
-
-</div >
   </div >
-  <div class="col-md-1">
-  </div>
+
 
 </div>
 

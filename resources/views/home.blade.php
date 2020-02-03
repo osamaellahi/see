@@ -2,47 +2,7 @@
 
 @section('content')
 @include('in.leftside')
-<!-- Modal -->
-<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Fill Information and send your request</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-        {!! Form::open([ 'method' => 'POST']) !!}
-<div class="form-group">
-    {{Form::label('title', 'Title',['style'=>'font-weight:bold'])}}
-    <br><small>Ask any question(Relating to your projects / tasks ) ?</small>
-    {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter tite..'])}}
-</div>
-<div class="form-group">
-    {{Form::label('catrgory', 'Select a category',['style'=>'font-weight:bold'])}}
-    {{Form::select('size', array('1' => 'Education', '2' => 'Planting'), 'Education',['class'=>'form-control'])}}
-</div>
-<div class="form-group">
-    {{Form::label('body', 'Body' ,['style'=>'font-weight:bold'])}}
-    <br><small>Explain your question here .</small>
-    {{Form::text('body', '',['class'=>'form-control','id'=>'article','placeholder'=>'Enter Body..'])}}
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    
-{{Form::submit('Submit request',['class'=>'btn btn-primary'])}}
 
-  </div>
-  
-{!! Form::close() !!}
-    </div>
-   
-  </div>
-</div>
-</div>
-<!------------------------------------------------------------>
 <div class="row" style="margin-left:2%;margin-right:2%" >
     <div class="col-md-11">
         <div class="card">
@@ -58,7 +18,6 @@ aria-hidden="true">
             <div class="card-body table-responsive">
                 <table class="table table-light table-striped">
                     <tbody>
-                      
                         <hr />
                         <tr>
                           <td>Name</td>
@@ -81,32 +40,52 @@ aria-hidden="true">
 </div>
 <br>
     <div class="row " style="margin-left:1.5%;margin-right:1.5%">
-        <div class="col-md-3 col-md-offset-1" >
-            <div class="card" >
-                 
-                      <h5 class="card-header">Apply for Solution Provider</h5>
-                      
-                      <div class="card-body">
-                        <h6 style="color:tomato">What is Solution Provider ?</h6>
-                        <p>If you want to give solution for any problem which you are seeing. You must be a valid person 
-                            to give solution .</p>
-
-                         <button type="button" class="btn btn-outline-success"  data-toggle="modal" data-target="#basicExampleModal" style="float:right">Click to apply</button><br>
-                     </div>
-                     
-              </div >
+        <div class="col-md-4 " >
+          @include('solutionprovider.apply')
          </div>
-        <div class="col-md-8 col-md-offset-1" >
-            <div class="card" style="border:1px solid mediumaquamarine">
+        <div class="col-md-7 col-md-offset-1" >
+            <div class="card" style="border:1px solid mediumaquamarine;margin-left:2px;border:0px">
                  
-                <h5 class="card-header" >People near you</h5>
-                <div class="card-body">
-                  
-                  <p>New letter for you</p>
-                  <p>New letter for you</p>
-                  <p>New letter for you</p>
-                  <p>New letter for you</p>
-                   
+                <h5 class="card-header" >People near you.<small><a href="./people" style="float:right" class="link">see all <i class="fa fa-arrow-circle-right"></i></small></a></h5>
+                <?php 
+                    $people=App\User::all();
+                    $i=0;
+                ?>
+                <div class="card-body row">
+                    @foreach ($people as $p)
+                    <?php
+                    $i++; 
+                    ?>
+                    <div class="card col-md-12" style="float:left;margin-bottom:5px;border-radius:0%" >
+                        <div class="card-header" >
+                          <div class="image"  style="float:left;display:inline-block;"> 
+                               <img src="
+                            https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRckzeL7ufOox9b3vTrzwDBzFSMXmWqMaEJ8B7r2hV4kEcmHKM8&s
+                         " class="rounded-circle zoom" height="55" width="60" alt="{{$p->name}}">
+                          </div>
+                          <div class="name"  style="float:left;display:inline-block;padding-top:8px;padding-left:5px;">
+                           <h4> {{$p->name}} </h4>
+                          </div>
+                          <div class="icons" style="float:right;display:inline-block;">
+                              <a href="" class="link" style="color:black;">Lets chat <i style="color:blueviolet;"class="fa fa-envelope circle"></i></a>
+                                @include('group.add')
+                            </div>
+                        </div>
+                        <div class="card-body" style="margin-bottom:5px ">
+                            <p style="float:left;display:inline-block;">Posts 12 </p>
+                            <p style="float:right;display:inline-block;">Solution provider yes</p>
+                               <br /> <hr />
+                        </div>
+                    
+                </div>
+                @if ($i%2!=0)
+                <div class="col-md-2">
+                </div>
+                @endif
+                @if($i>1)
+                    @break;
+                @endif
+                    @endforeach    
                </div>
 
         </div >
