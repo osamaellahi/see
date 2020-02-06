@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/people','PageController@people');
+Route::get('/myprofile','PageController@myprofile');
+
 Route::get('sugg/add','suggController@add');
 Route::get('/people/{{$id}}','PageController@show');
 

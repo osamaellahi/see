@@ -63,7 +63,7 @@
             margin-top:74px; 
             padding-bottom: 10px;
           width: 0;
-          position: fixed;
+          position: fixed;;
           z-index: 1;
           top: 0;
           left: 0;
@@ -107,8 +107,18 @@
           .sidenav {padding-top: 15px;}
           .sidenav a {font-size: 18px;}
         }
+        @media screen and (max-width: 992px) {
+        .right-side-posts-index{
+          display: none;
+        }
+        }
+        body{
+          background:#f0f0f0;
+        }
         .card{
-            border:.5px solid mediumaquamarine;
+            box-shadow:.7px .7px 4px mediumaquamarine;
+            
+            background:#fff;
         }
        
         </style>

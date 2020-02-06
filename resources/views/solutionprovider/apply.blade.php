@@ -93,8 +93,8 @@ use App\solutionprovider;
 
         @if($m->status=="applied") 
         <div class="card"  >             
-               <h5 class="card-header">Solution Provider <i style="float:right;color:gray;" class="fa fa-clock-o"></i></h5>   
-              <div class="card-body">
+               <h5 class="card-header" >Solution Provider <i style="float:right;color:gray;" class="fa fa-clock-o"></i></h5>   
+              <div class="card-body" >
               <h6 style="display:inline-block;">Status : </h6>
               <h4 style="display:inline-block;color:grey">Applied</h4> <hr />
               @include('solutionprovider.edit',['sp',$m->id])

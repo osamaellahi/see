@@ -52,7 +52,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                            
-                                <a class="dropdown-item" href="#"><i class="fa fa-user-circle-o" style="padding-right:10px;"></i>  profile</a>
+                                <a class="dropdown-item" href="/see/public/myprofile"><i class="fa fa-user-circle-o" style="padding-right:10px;"></i>  profile</a>
                             
                                 <a class="dropdown-item" href="#"><i class="fa fa-bell" style="padding-right:10px;"></i>  notification</a>
                             

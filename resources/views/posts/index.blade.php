@@ -8,7 +8,7 @@
 
 <div class="col-md-7 container"  style="margin-top:0%;">
   
-    <div class=" " style="margin-top:0%;">
+    <div class="" style="margin-top:0%;margin:0%">
         <div class="" style="margin-top:0%;">
             <div class="">
                 @if (session('status'))
@@ -119,7 +119,14 @@
     </div>
 </div>
     <div class="col-md-4 ">
-    @include('solutionprovider.apply')
+        <div class="right-side-posts-index">
+                @include('solutionprovider.apply')
+                <!-------people-----------------------section----->
+               
+                @include('pages.minipeople')
+              
+                <!------------->
+        </div>
 <br >
 
   </div >

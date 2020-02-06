@@ -20,6 +20,10 @@ class PageController extends Controller
         $users =User::all();
         return view('pages.people')->with('people',$users);
     }
+    public function myprofile()
+    {
+        return view('profile.mine');
+    }
     public function __construct()
     {
         $this->middleware('auth');
