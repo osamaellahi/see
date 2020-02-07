@@ -1,4 +1,4 @@
-<!-- Modal -->
+<!-- Modal apply-->
 <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -103,9 +103,9 @@ use App\solutionprovider;
         </div>
         <br>
         @endif
-        
+
         @if($m->status=="rejected")
-            <div class="card"  >      
+            <div class="card">
             <h5 class="card-header">Apply for Solution Provider</h5>
             <div class="card-body">
             <h6 style="color:tomato">What is Solution Provider ?</h6>
@@ -114,7 +114,7 @@ use App\solutionprovider;
             <hr />
             <h6 style="color:red;">Previously : Rejected <i class="fa fa-ban" aria-hidden="true"></i></h6><hr />
             <button type="button" class="btn btn-outline-success"  data-toggle="modal" data-target="#basicExampleModal" style="float:right">
-            Apply again</button>
+              Click to apply</button><br>
             </div>
             </div>
             <br>

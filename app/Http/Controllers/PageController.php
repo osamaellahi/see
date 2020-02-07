@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\solutionprovider;
+use App\reference;
 use App\User;
 class PageController extends Controller
 {
@@ -14,7 +16,7 @@ class PageController extends Controller
     public function index()
     {
         //
-    } 
+    }
     public function people()
     {
         $users =User::all();
@@ -60,6 +62,7 @@ class PageController extends Controller
         //
     }
 
+   
     /**
      * Show the form for editing the specified resource.
      *
@@ -80,7 +83,7 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+     
     }
 
     /**

@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8">
+  <link rel="icon" href="
+  https://www.pngarts.com/files/2/Letter-S-PNG-High-Quality-Image.png
+  " type="image/gif" sizes="16x16">
+ 
+  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- CSRF Token -->
@@ -117,10 +121,8 @@
         }
         .card{
             box-shadow:.7px .7px 4px mediumaquamarine;
-            
             background:#fff;
         }
-       
         </style>
 </head>
 

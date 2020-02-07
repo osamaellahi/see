@@ -17,11 +17,17 @@ Route::get('/', function () {
 
 Route::get('/people','PageController@people');
 Route::get('/myprofile','PageController@myprofile');
-
-Route::get('sugg/add','suggController@add');
 Route::get('/people/{{$id}}','PageController@show');
 
+
+Route::get('sugg/add','suggController@add');
+
+
+
+Route::get('/allmyposts','PostsController@allmyposts');
 Route::resource('posts', 'PostsController');
+
+
 
 Route::resource('solutionprovider', 'SproviderController');
 Route::resource('Solutions', 'SolutionsController');

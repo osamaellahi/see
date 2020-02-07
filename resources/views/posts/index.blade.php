@@ -57,7 +57,8 @@
                     
                         </div>
                         <div class="card-body" >
-                            <p>{!! $post->body !!}
+                            <p>
+                                {{ substr(strip_tags($post->body) ,0,300)  }}{{ strlen($post->body)>300 ? " ... ":"" }}
                                 @if(strlen($post->body)>180)
                                 <a href="/see/public/posts/{{$post->id}}" class="btn btn-outline-info " style="float:right">Read more</a>
                                 @endif
@@ -122,7 +123,6 @@
         <div class="right-side-posts-index">
                 @include('solutionprovider.apply')
                 <!-------people-----------------------section----->
-               
                 @include('pages.minipeople')
               
                 <!------------->

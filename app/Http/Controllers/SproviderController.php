@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\solutionprovider;
 use App\reference;
@@ -23,10 +22,7 @@ class SproviderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -36,6 +32,31 @@ class SproviderController extends Controller
      */
     public function store(Request $request)
     {
+        $id=auth()->user()->id;
+        
+        $solpr= solutionprovider::where('user_id','=',$id)->get();
+      
+        if(!empty($solpr))
+        {
+            foreach($solpr as $solp)
+            {
+                $solp->status="applied";
+                $solp->save();       
+                
+                $ref = new reference;
+                $ref->soloution_provider=$solp->id;
+                $ref->name = $request->input('name');
+                $ref->email = $request->input('email');
+                $ref->qualification = $request->input('qualification');
+                $ref->permission = $request->input('per');
+                $ref->facebook  = $request->input('facebook');
+                $ref->twitter = $request->input('twitter');
+                $ref->github = $request->input('github');
+                $ref->save();
+                
+            }
+        }
+        else{
         $solp= new solutionprovider;
         $solp->user_id = auth()->user()->id;
         $solp->status="applied";
@@ -51,8 +72,9 @@ class SproviderController extends Controller
         $ref->twitter = $request->input('twitter');
         $ref->github = $request->input('github');
         $ref->save();
+        }
 
-        return redirect()->action('PostsController@index');
+        return back();
     }
 
     /**

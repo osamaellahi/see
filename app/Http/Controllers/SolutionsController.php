@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Solution;
-
+use Purifier;
+use Session;
 class SolutionsController extends Controller
 {
     /**
@@ -37,7 +38,7 @@ class SolutionsController extends Controller
     {
         $solution =new Solution;
         $solution ->post_id=$request->input('post_id');
-        $solution ->sol=$request->input('solution');
+        $solution ->sol=Purifier::clean($request->input('solution'));
         $solution->name =auth()->user()->name; 
         $solution->save();
         return back();

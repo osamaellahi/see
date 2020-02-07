@@ -51,7 +51,6 @@
             <div class="justify-content-center ">
                 <div class="">
                     <br>
-                    <div  style="border-bottom:1px solid sienna" >Your Posts</div><br>
     
                     <div class="">
                         @if (session('status'))
@@ -60,49 +59,8 @@
                             </div>
                         @endif
     
-                            @if (count($posts)>0)
-                                
-                            @foreach ($posts as $post)
-                            @if((Auth::user()->name)==($post->user->name))
-                            <div class="card">    
-                                
-                            <div class="card-header" style="background:rosybrown;">
-                                <h5>{{$post->user->name}}</h5>
-                                    </div>
-                            <div class="card-header">
-                            <h5>{{$post->title}}</h5>
-                                </div>
-                                <div class="card-body" >
-                                    <p>{{$post->body}}</p>
-                                    <button class="btn btn-outline-info " style="float:right">Read more</button>
-                                </div><hr>
-                               <div style="display:inline-block;">
-                                
-                             <i style="font-size:24px;padding:10px;color:rosybrown;width:35px;
-                             cursor: pointer;
-                             
-                             
-                             " class="fa fa-thumbs-up"></i><p style="display:inline-block;">2</p>
-                                             
-                             <i style="font-size:24px;margin-left:40px;
-                                        -webkit-transform: scaleX(-1);
-                                          transform: scaleX(-1);
-                             padding:10px;color:rosybrown;width:35px;cursor: pointer;" class="fa fa-thumbs-down"></i><p style="display:inline-block">22</p>
-
-                          <p style="font-size:14px;margin-left:40px;display:inline-block;
-                            padding:10px;color:rosybrown;cursor: pointer;">suggestion</p><p style="display:inline-block">14</p>
-                                
-                                <p style="font-size:14px;margin-left:40px;display:inline-block;
-                                  padding:10px;color:rosybrown;cursor: pointer;">solution</p><p style="display:inline-block">14</p>
-
-                            </div>
-                            </div>
-                            <br>
-                            @endif
-                            @endforeach
-                             @else
-                            <p>No post yet</p>
-                            @endif
+                          
+                        @include('posts.myposts')
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@
                     <img src="
                     https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRckzeL7ufOox9b3vTrzwDBzFSMXmWqMaEJ8B7r2hV4kEcmHKM8&s
                     "  class="rounded-circle img-fluid zoom"  height="45px" width="50px" alt="{{$data[0]->user->name}}">
-                    {{$data[0]->user->name}}</h5>
+                    {{$data[0]->user->name}}<small style="float:right">{{$data[0]->created_at}}</small></h5>
                         
                     <h5 style="display:inline-block;width:100%;"><p class="link" style="float:left;">{{$data[0]->title}}</p>
                       
@@ -27,16 +27,6 @@
                     </div>
                    <div style="display:inline-block;border-bottom:.2px solid rosybrown;">
                     
-                 <i style="font-size:24px;padding:10px;color:rosybrown;width:35px;
-                 cursor: pointer;
-                 
-                 " class="fa fa-thumbs-up"></i><p style="display:inline-block;">2</p>
-                                 
-                 <i style="font-size:24px;margin-left:5px;
-                            -webkit-transform: scaleX(-1);
-                              transform: scaleX(-1);
-                 padding:10px;color:rosybrown;width:35px;cursor: pointer;" class="fa fa-thumbs-down"></i><p style="display:inline-block">22</p>
-
               <p style="font-size:14px;margin-left:5px;display:inline-block;
                 padding:10px;color:rosybrown;cursor: pointer;">suggestion</p><p style="display:inline-block">{{count($data[2])}}</p>
                     
@@ -59,7 +49,7 @@
                       
                         <!------suggestion creating --->
                         @include('suggestions.create', ['data' => $data[0]->id ])
-                        <!------ending suggestion --->-
+                        <!------ending suggestion --->
                           
                     </div>
                 </div>

@@ -8,6 +8,8 @@ use App\User;
 use App\Solution;
 use App\suggestion;
 use App\solutionprovider;
+use Session;
+use Purifier;
 class PostsController extends Controller
 {
    
@@ -21,13 +23,15 @@ class PostsController extends Controller
         $posts=Posts::orderBy('id', 'DESC')->get();
         $soltion=Solution::all();        
         $sugg=suggestion::all();
-
-        
         $solutionp= solutionprovider::all();
         $data =array(
             $posts, $soltion,$sugg,$solutionp
             );
         return view('posts.index')->with('data',$data);
+    }
+    public function allmyposts()
+    {
+        return view('posts.allmyposts');
     }
     /**
      * Show the form for creating a new resource.
@@ -54,7 +58,7 @@ class PostsController extends Controller
 
         $post = new Posts;
         $post->title =$request->input('title');
-        $post->body =$request->input('body');
+        $post->body =Purifier::clean($request->input('body'));
         $post->user_id=auth()->User()->id;
         $post->save();
         return redirect('posts')->with('success','Post created');
