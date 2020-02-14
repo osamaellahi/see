@@ -20,7 +20,8 @@ class suggController extends Controller
     public function index()
     {
         $sugg =suggestion::all();
-        return view('suggestions.allsugg')->with('data',$sugg);
+        
+        return response()->json($sugg);
     }
 
     /**
@@ -69,8 +70,7 @@ class suggController extends Controller
             $response=array ($sugg);
             }
             $data =suggestion::all();
-        return response()->json(['data',$data]);
-        
+        return response()->json($data);
     }
     /**
      * Display the specified resource.

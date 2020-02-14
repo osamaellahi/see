@@ -123,10 +123,69 @@
             box-shadow:.7px .7px 4px mediumaquamarine;
             background:#fff;
         }
+        .lay{
+          cursor:pointer;
+        }
+        .lay:hover{
+          border: 1px solid blueviolet;
+        }
         </style>
 </head>
 
 <body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#call1").click(function(){
+    $("body").css("background", "#f0f0f0");
+    $(".card").css("border", "1px solid mediumaquamarine");
+    $(".card").css("box-shadow", "0");
+  });
+
+  $("#call2").click(function(){
+    $("body").css("background", "whitesmoke");
+    $(".card").css("border", "1px solid mediumaquamarine");
+    $("a").css("color", "black");
+  });
+
+  $("#call3").click(function(){
+    $("body").css("background", "white");
+    $(".card").css("border", "1px solid black");
+  });
+
+});
+</script>
+  <script>
+    function lay1()
+    {
+      
+      document.body.style.backgroundColor = "black";
+      
+      var d=document.getElementsByClassName("card");
+      d.style.backgroundColor="#fff";
+      var a=document.getElementById("laynormal");
+      var b=document.getElementById("lay2");
+      var c=document.getElementById("laybw");
+    }
+    function lay2()
+    {
+      
+      document.body.style.backgroundColor = "#f0f0f0";
+      
+      var d=document.getElementsByClassName("card");
+      d.style.backgroundColor="#fff";
+      d.style.border=".7px .7px 4px mediumaquamarine";
+      var a=document.getElementById("laynormal");
+      var b=document.getElementById("lay2");
+      var c=document.getElementById("laybw");
+    }
+    function lay3()
+    {
+        var a=document.getElementById("laynormal");
+      var b=document.getElementById("lay2");
+      var c=document.getElementById("laybw");
+    }
+  </script>
     <div id="app">
      @include('in.navbar')
 
@@ -134,7 +193,7 @@
             @yield('content')
         </main>
     </div>
-    
+  
 <script>
     function openNav() {
       var e =document.getElementById("mySidenav").style;

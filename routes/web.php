@@ -14,10 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/setting', function () {
+    return view('pages.setting');
+});
+Route::get('/allsugg', function () {
+    return view('suggestions.allsugg');
+});
+
 
 Route::get('/people','PageController@people');
 Route::get('/myprofile','PageController@myprofile');
-Route::get('/people/{{$id}}','PageController@show');
 
 
 Route::get('sugg/add','suggController@add');
@@ -31,7 +37,9 @@ Route::resource('posts', 'PostsController');
 
 Route::resource('solutionprovider', 'SproviderController');
 Route::resource('Solutions', 'SolutionsController');
+
 Route::resource('sugg', 'suggController');
+Route::resource('pages', 'PageController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

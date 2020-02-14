@@ -1,11 +1,8 @@
 @include('layouts.app')
 
     <!-- jQuery -->
-    {{-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script> --}}
-    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 
-<div id="server-results">
-
+<div id="server-results">{{--<!--
 @if (count($data)>0)
 @foreach ($data as $sugg)
 <div class="suggestclass">
@@ -13,13 +10,14 @@
 </div>
 @endforeach
 @endif
+-->--}}
 </div>
-<div id="server-results2"></div><div id="upload-progress"><div class="progress-bar"></div></div> <!-- Progress bar added -->
+<div id="upload-progress"><div class="progress-bar"></div></div> <!-- Progress bar added -->
 <div class="form">
-    {!! Form::open(['action' => 'suggController@add','actiom'=>'POST','id'=>'my_form']) !!}
+    {!! Form::open(['action' => 'suggController@add','method'=>'POST','id'=>'my_form']) !!}
     {{ csrf_field() }}
     <div class="form-group">
-       {{Form::text('post', $data[1]->id,['style'=>'display:none'])}}
+       {{Form::text('post', '2',['style'=>'display:none'])}}
         <div class="input-group mb-3">
         {{Form::text('sugg', '',['required','class'=>'form-control','placeholder'=>'Enter suggestion..','aria-label'=>'','aria-describedby'=>'basic-addon2'])}}
         <div class="input-group-append">
@@ -29,57 +27,40 @@
     </div>
     {!! Form::close() !!}
 </div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
   <script>
-$("#my_form").submit(function(event){
-    event.preventDefault(); //prevent default action 
-    var post_url = $(this).attr("action"); //get form action url
-    var request_method = $(this).attr("method"); //get form GET/POST method
-    var form_data = new FormData(this); //Encode form elements for submission
-    
-    $.ajax({
-        url : post_url,
-        type: request_method,
-        data : form_data,
-		contentType: false,
-		processData:false,
-		xhr: function(){
-		//upload Progress
-		var xhr = $.ajaxSettings.xhr();
-		if (xhr.upload) {
-			xhr.upload.addEventListener('progress', function(event) {
-				var percent = 0;
-				var position = event.loaded || event.position;
-				var total = event.total;
-				if (event.lengthComputable) {
-					percent = Math.ceil(position / total * 100);
-				}
-				//update progressbar
-				$("#upload-progress .progress-bar").css("width", + percent +"%");
-			}, true);
-		}
-		return xhr;
-	}
-    }).done(function(response){ //
-        $("#server-results").html(response);
-    });
-});
+
 $("#my_form").submit(function(event){
 	event.preventDefault(); //prevent default action 
 	var post_url = $(this).attr("action"); //get form action url
 	var form_data = $(this).serialize(); //Encode form elements for submission
 	
-	$.get( post_url, form_data, function( response ) {
-       var l=response[1].length;
-       var content;
-       var i;
-        for (i = 1;i<l;i++){
-
-        content +='<a href="" style="display:inline-block;" title="'+response[1][i].name+'" class="suggestclass">'+response[1][i].suggest+'</a>' ;
-        }
-        $("#server-results").hide();
-        $("#server-results2").html(content);
-      
+	$.post( post_url, form_data, function( response ) {
+	  $("#server-results").html( response );
 	});
+
+	$.get( post_url, form_data, function( response ) {
+     // render(response);
+    render(response); 
+     //  $("#server-results").hide();
+        //$("#").html(content);--}}
+    });
 });
+
+var output=document.getElementById("server-results");
+ function render(data)
+{
+
+  var l=data.length-1;
+       var content;
+       var i=l;
+        content ='<a href="" style="display:inline-block;" title="'+data[l].name+'" class="suggestclass">'+data[l].suggest+'</a>' ;
+        //output.insertAdjacentElement('beforeend',content);
+   conosole.log(content);
+       //output.insertAdjacentHTML('beforeend',content);
+}
 
       </script>

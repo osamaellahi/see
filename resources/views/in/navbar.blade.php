@@ -23,6 +23,13 @@
                     <li class="nav-link">
                         <a href="/see/public/home" class="nav-link tooop">Dashboard</a>
                     </li>
+                    <li class="nav-link">
+                        <a href="#" class="nav-link tooop">Message</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#" class="nav-link tooop">Notification</a>
+                    </li>
+               
                 </ul>
                 </div>
                     @else
@@ -54,7 +61,8 @@
                            
                                 <a class="dropdown-item" href="/see/public/myprofile"><i class="fa fa-user-circle-o" style="padding-right:10px;"></i>  profile</a>
                             
-                                <a class="dropdown-item" href="#"><i class="fa fa-bell" style="padding-right:10px;"></i>  notification</a>
+                               
+                                <a class="dropdown-item" href="/see/public/setting"><i class="fa fa-gear" style="padding-right:10px;"></i>  setting</a>
                             
                             
                             <a class="dropdown-item" href="{{ route('logout') }}"

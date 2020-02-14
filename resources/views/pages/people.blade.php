@@ -27,7 +27,7 @@
                      " class="rounded-circle img-fluid zoom" height="45" width="50" alt="{{$p->name}}">
                       </div>
                       <div class="name"  style="float:left;display:inline-block;padding-top:0px;padding-left:5px;">
-                       <h4> {{$p->name}} </h4>
+                       <h4> <a href="/see/public/pages/{{$p->id}}" class="link" >{{$p->name}}</a> </h4>
                       </div>
                       <div class="icons" style="float:right;display:inline-block;">
                           

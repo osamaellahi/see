@@ -15,7 +15,7 @@
                     <img src="
                     https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRckzeL7ufOox9b3vTrzwDBzFSMXmWqMaEJ8B7r2hV4kEcmHKM8&s
                     "  class="rounded-circle img-fluid zoom"  height="45px" width="50px" alt="{{$data[0]->user->name}}">
-                    {{$data[0]->user->name}}<small style="float:right">{{$data[0]->created_at}}</small></h5>
+                    <a href="/see/public/pages/{{$data[0]->user->id}}" class="link" > {{$data[0]->user->name}}</a><small style="float:right">{{$data[0]->created_at}}</small></h5>
                         
                     <h5 style="display:inline-block;width:100%;"><p class="link" style="float:left;">{{$data[0]->title}}</p>
                       

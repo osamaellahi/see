@@ -30,7 +30,7 @@
                       https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRckzeL7ufOox9b3vTrzwDBzFSMXmWqMaEJ8B7r2hV4kEcmHKM8&s
                       "  class="rounded-circle img-fluid zoom"  height="45px" width="50px" alt="{{$post->user->name}}">
                      
-                    {{$post->user->name}}<small style="float:right">{{$post->created_at}}</small></h5>
+                      <a href="/see/public/pages/{{$post->user->id}}" class="link" >{{$post->user->name}}</a><small style="float:right">{{$post->created_at}}</small></h5>
                             </div>
                     <div class="card-header">
                     <h5><a href="/see/public/posts/{{$post->id}}" class="link">{{$post->title}}</a>
