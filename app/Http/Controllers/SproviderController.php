@@ -127,7 +127,7 @@ class SproviderController extends Controller
         $ref->github = $request->input('github');
         $ref->save();
 
-        return redirect()->action('PostsController@index');
+        return back();
     }
 
     /**
@@ -144,6 +144,6 @@ class SproviderController extends Controller
         $sol->delete();
 
         
-        return redirect()->action('PostsController@index');
+        return back();
     }
 }

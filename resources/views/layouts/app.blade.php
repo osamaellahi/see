@@ -36,6 +36,13 @@
     border: 1px solid #ddd;
     width: 100%;
 }
+.message{
+  padding: 6px;
+  border:1px solid steelblue;
+  border-radius: 10px;
+  background: steelblue;
+  color: #fff;
+}
 #upload-progress .progress-bar{
 	background: #bde1ff;
     width: 0;
@@ -120,7 +127,8 @@
           background:#f0f0f0;
         }
         .card{
-            box-shadow:.7px .7px 4px mediumaquamarine;
+          
+          border: 1px solid #bde1ff;
             background:#fff;
         }
         .lay{
@@ -129,6 +137,24 @@
         .lay:hover{
           border: 1px solid blueviolet;
         }
+       .contacts:hover{
+        background: #2c40382b;
+        cursor: pointer;
+       }
+       .navbar{
+        height: 40px;
+        box-shadow:.7px .7px 4px burlywood;
+        margin-bottom:0%; 
+       }
+       @media screen and (max-width: 900px) {
+         .navbar{
+          height: 10%;
+        }
+       
+       }
+       .navbar .navbar-nav .nav-link:hover {
+         color: blueviolet;
+       }
         </style>
 </head>
 

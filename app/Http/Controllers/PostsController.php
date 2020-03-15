@@ -55,7 +55,6 @@ class PostsController extends Controller
             'title' => 'required',
             'body' =>'required'
         ]);
-
         $post = new Posts;
         $post->title =$request->input('title');
         $post->body =Purifier::clean($request->input('body'));

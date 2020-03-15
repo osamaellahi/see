@@ -17,8 +17,8 @@
                 https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRckzeL7ufOox9b3vTrzwDBzFSMXmWqMaEJ8B7r2hV4kEcmHKM8&s
              " class="rounded-circle img-fluid zoom" height="45" width="50" alt="{{$p->name}}">
               </div>
-              <div class="name"  style="float:left;display:inline-block;padding-top:8px;padding-left:5px;">
-               <h4> {{$p->name}} </h4>
+              <div class="name"  style="float:left;display:inline-block;padding-top:0px;padding-left:5px;">
+               <h4><a href="/see/public/pages/{{$p->id}}" class="link"> {{$p->name}} </a></h4>
               </div>
               <div class="icons" style="float:right;display:inline-block;">
                   <a href="" class="link" style="color:black;" data-toggle="tooltipchat" title="Lets chat !!!"><i style="color:blueviolet;"class="fa fa-envelope circle"></i></a>

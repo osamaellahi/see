@@ -5,6 +5,8 @@
     $data[3]= App\solutionprovider::all();
 ?>
 <h5 style="border-bottom:1px solid crimson;padding:5px;text-align:center">My posts</h5>
+@if (count($data[0])>0)
+    
 @foreach ($data[0] as $post)
 <div class="card">    
                 
@@ -81,9 +83,7 @@
     <div class="card" style="border:0.1px solid white">
         
                 <strong>Suggestions</strong>
-        
                 <div class="card-body" style="display:inline-block">
-                  
                   <!------suggestion getting from --->
                     @include('suggestions.show', ['data' => [$data[2],$post]])
                   <!------ending suggestion --->
@@ -96,3 +96,7 @@
     </div>
     <br>
     @endforeach
+    @else
+    <p>No post!!</p>
+    
+@endif

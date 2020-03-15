@@ -29,11 +29,12 @@ Route::get('/myprofile','PageController@myprofile');
 Route::get('sugg/add','suggController@add');
 
 
-
 Route::get('/allmyposts','PostsController@allmyposts');
 Route::resource('posts', 'PostsController');
 
-
+Route::get('/alluser','messageController@alluser');
+Route::resource('message', 'messageController');
+Route::get('/allmess/{{$id}}','messageController@allmess');
 
 Route::resource('solutionprovider', 'SproviderController');
 Route::resource('Solutions', 'SolutionsController');

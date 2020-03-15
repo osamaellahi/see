@@ -10,6 +10,7 @@
     $data[2]=App\suggestion::all();
     $data[3]= App\solutionprovider::all();
 ?>
+@if(count($posts)>0)
 @foreach ($data[0] as $post)
 <div class="card">    
                 
@@ -24,12 +25,13 @@
     <div class="card-header">
     <h5><a href="/see/public/posts/{{$post->id}}" class="link">{{$post->title}}</a>
       <?php $chk='false'; ?>
+      
 @if(count($data[3])>0)
  @foreach ($data[3] as $sp)
  @if (((auth()->user()->id)==($sp->user_id))&&($sp->status=="verified"))
  <a href="/see/public/posts/{{$post->id}}" class="link" style="float:right"><small>Give solution <i class="fa fa-arrow-circle-right"></i></small></a>
       <?php $chk='true'; ?>
- @endif   
+ @endif  
  @endforeach
  @endif
  <?php
@@ -101,7 +103,11 @@
     </div>
     <br>
     @endforeach
+    @else
+    <h5 style="margin:0%">No post!!</h5>
+    @endif
     </div>
+  
     
     <div class="col-md-2"></div>
 </div>

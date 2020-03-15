@@ -8,6 +8,10 @@ use App\reference;
 use App\User;
 class PageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +21,7 @@ class PageController extends Controller
     {
         //
     }
+   
     public function people()
     {
         $users =User::all();
@@ -26,10 +31,7 @@ class PageController extends Controller
     {
         return view('profile.mine');
     }
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    
     /**
      * Show the form for creating a new resource.
      *

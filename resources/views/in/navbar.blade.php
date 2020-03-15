@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" >
     <div class="container">
         @if ((!Auth::guest()))
             
@@ -24,7 +24,7 @@
                         <a href="/see/public/home" class="nav-link tooop">Dashboard</a>
                     </li>
                     <li class="nav-link">
-                        <a href="#" class="nav-link tooop">Message</a>
+                        <a href="/see/public/message" class="nav-link tooop">Message</a>
                     </li>
                     <li class="nav-link">
                         <a href="#" class="nav-link tooop">Notification</a>
