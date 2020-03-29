@@ -31,7 +31,7 @@
                       </div>
                       <div class="icons" style="float:right;display:inline-block;">
                           
-                        <a href="" class="link"  style="color:black;" data-toggle="tooltipchat" title="Lets chat !!!"><i style="color:blueviolet;"class="fa fa-envelope circle"></i></a>
+                        <a href="/see/public/message/{{$p->id}}" class="link"  style="color:black;" data-toggle="tooltipchat" title="Lets chat !!!"><i style="color:blueviolet;"class="fa fa-envelope circle"></i></a>
                         <script>
                           $(document).ready(function(){
                             $('[data-toggle="tooltipchat"]').tooltip();

@@ -15,11 +15,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
+ 
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -27,14 +24,76 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  
     <style>
+        #talkbubble {
+      min-height: 70px;
+      background: rgba(152, 210, 112, 0.48);
+      position: relative;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      padding: 6px;
+      margin: 5px;
+    }
+    #talkbubble:before {
+      content: "";
+      position: absolute;
+      right: 100%;
+      top: 20px;
+      width: 0;
+      height: 0;
+      border-top: 2px solid transparent;
+      border-right: 15px solid rgba(86, 123, 60, 0.48);;
+      border-bottom: 40px solid transparent;
+    }
+    .arrow_box {
+	position: relative;
+	background: #88b7d5;
+	border: 4px solid #c2e1f5;
+}
+.arrow_box:after, .arrow_box:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-left-color: #88b7d5;
+	border-width: 30px;
+	margin-top: -30px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-left-color: #c2e1f5;
+	border-width: 36px;
+	margin-top: -36px;
+}
       #upload-progress{
     height: 20px;
     border: 1px solid #ddd;
-    width: 100%;
+  width: 65%;
+}
+.parent{
+  width: 100%;
+  display: inline-block;
 }
 .message{
   padding: 6px;
@@ -42,6 +101,7 @@
   border-radius: 10px;
   background: steelblue;
   color: #fff;
+
 }
 #upload-progress .progress-bar{
 	background: #bde1ff;
@@ -239,6 +299,7 @@ $(document).ready(function(){
     $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
 });
+
     </script>
 </body>
 </html>

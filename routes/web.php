@@ -34,7 +34,18 @@ Route::resource('posts', 'PostsController');
 
 Route::get('/alluser','messageController@alluser');
 Route::resource('message', 'messageController');
-Route::get('/allmess/{{$id}}','messageController@allmess');
+Route::get('/message/delete','messageController@delete');
+Route::get('/message/allmess/{id}', function ($id) {
+    $query_one =App\messages::where([
+        ['from_user_id', '=', auth()->user()->id],
+        ['to_user_id', '=', $id]])
+        ->orwhere(
+           [ ['from_user_id', '=', $id],
+        ['to_user_id', '=', auth()->user()->id]])
+        ->get();
+        return response()->json($query_one);
+});
+
 
 Route::resource('solutionprovider', 'SproviderController');
 Route::resource('Solutions', 'SolutionsController');

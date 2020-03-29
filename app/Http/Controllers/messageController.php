@@ -46,7 +46,10 @@ class messageController extends Controller
         $m->file='nofile';
         $m->status='sent';
         $m->save();
-        return back();
+        $id=$request->input('toid');
+        $data = messages::find($m->id);
+            return response()->json($data);
+
     }
     public function print(Request $request)
     {
@@ -63,7 +66,7 @@ class messageController extends Controller
         $da =User::all();
         return response()->json($da);
     }
-    public function allmess($id)
+    public function allmess(Request $request,$id)
     {   
         $query_one =messages::where([
             ['from_user_id', '=', auth()->user()->id],
@@ -131,5 +134,11 @@ class messageController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function delete(Request $request)
+    {
+        
+        $m=$request->input('id');
+        return '3223';
     }
 }
